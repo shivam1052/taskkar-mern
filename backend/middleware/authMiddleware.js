@@ -26,6 +26,6 @@ export const checkAuth = async (req, res, next) => {
     next();
   } catch (error) {
     console.log("Error in checkAuth middleware", error.message);
-    res.status(500).json({ message: "Internal server error!" });
+    return res.status(500).json({ message: "Internal server error!" });
   }
 };

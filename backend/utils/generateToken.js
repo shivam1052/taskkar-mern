@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 
-const generateToken = (res, userId) => {
+const generateToken = (userId, res) => {
   const token = jwt.sign({ userId }, process.env.JWT_KEY, {
     expiresIn: "7d",
   });
@@ -9,7 +9,7 @@ const generateToken = (res, userId) => {
     maxAge: 7 * 24 * 60 * 60 * 1000,
     httpOnly: true,
     sameSite: "none",
-    secure: true,
+    secure: false,
   });
 };
 
